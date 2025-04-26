@@ -1,0 +1,25 @@
+name: Run Python script and send Telegram message
+
+on:
+  schedule:
+    - cron: '0 12 * * *'  # Roda todo dia às 9h da manhã no horário de Brasília (12h UTC)
+  workflow_dispatch:  # Permite rodar manualmente pelo GitHub
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 python-telegram-bot
+
+      - name: Run script
+        run: python seu_script.py  # Troque pelo nome do seu script Python
