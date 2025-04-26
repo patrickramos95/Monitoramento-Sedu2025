@@ -22,4 +22,4 @@ jobs:
           pip install requests beautifulsoup4 python-telegram-bot
 
       - name: Run script
-        run: python seu_script.py  # Troque pelo nome do seu script Python
+        run: python monitoramento.py
